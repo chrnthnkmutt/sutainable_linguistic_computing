@@ -1,0 +1,104 @@
+{
+ "labels": {
+  "th": {
+   "บวก": "positive",
+   "ลบ": "negative",
+   "กลาง": "neutral"
+  },
+  "en": {
+   "positive": "positive",
+   "negative": "negative",
+   "neutral": "neutral"
+  }
+ },
+ "items": {
+  "qa1": {
+   "task": "qa",
+   "gold_any": [
+    "เจ้าพระยา",
+    "Chao Phraya"
+   ]
+  },
+  "qa2": {
+   "task": "qa",
+   "gold_any": [
+    "77",
+    "เจ็ดสิบเจ็ด",
+    "seventy-seven"
+   ]
+  },
+  "qa3": {
+   "task": "qa",
+   "gold_any": [
+    "อินทนนท์",
+    "Inthanon"
+   ]
+  },
+  "qa4": {
+   "task": "qa",
+   "gold_any": [
+    "44",
+    "สี่สิบสี่",
+    "forty-four"
+   ]
+  },
+  "qa5": {
+   "task": "qa",
+   "gold_any": [
+    "พระอภัยมณี",
+    "Phra Aphai Mani",
+    "Phra Abhai Mani"
+   ]
+  },
+  "sum1": {
+   "task": "summarize"
+  },
+  "sum2": {
+   "task": "summarize"
+  },
+  "sum3": {
+   "task": "summarize"
+  },
+  "sum4": {
+   "task": "summarize"
+  },
+  "sum5": {
+   "task": "summarize"
+  },
+  "cls1": {
+   "task": "classify",
+   "gold": "positive"
+  },
+  "cls2": {
+   "task": "classify",
+   "gold": "negative"
+  },
+  "cls3": {
+   "task": "classify",
+   "gold": "neutral"
+  },
+  "cls4": {
+   "task": "classify",
+   "gold": "positive"
+  },
+  "cls5": {
+   "task": "classify",
+   "gold": "negative"
+  },
+  "hum1": {
+   "task": "humor"
+  },
+  "hum2": {
+   "task": "humor"
+  },
+  "hum3": {
+   "task": "humor"
+  },
+  "hum4": {
+   "task": "humor"
+  },
+  "hum5": {
+   "task": "humor"
+  }
+ }
+}

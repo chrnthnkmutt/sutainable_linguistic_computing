@@ -1,0 +1,122 @@
+[
+ {
+  "id": "qa1",
+  "task": "qa",
+  "system": "You are a helpful AI assistant. Always answer in English, accurately, concisely and to the point.",
+  "user": "Answer the following question briefly: What is the main river that flows through Bangkok?"
+ },
+ {
+  "id": "qa2",
+  "task": "qa",
+  "system": "You are a helpful AI assistant. Always answer in English, accurately, concisely and to the point.",
+  "user": "Answer the following question briefly: How many provinces does Thailand have in total (including Bangkok)?"
+ },
+ {
+  "id": "qa3",
+  "task": "qa",
+  "system": "You are a helpful AI assistant. Always answer in English, accurately, concisely and to the point.",
+  "user": "Answer the following question briefly: What is the highest mountain peak in Thailand?"
+ },
+ {
+  "id": "qa4",
+  "task": "qa",
+  "system": "You are a helpful AI assistant. Always answer in English, accurately, concisely and to the point.",
+  "user": "Answer the following question briefly: How many consonant letters are there in the Thai alphabet?"
+ },
+ {
+  "id": "qa5",
+  "task": "qa",
+  "system": "You are a helpful AI assistant. Always answer in English, accurately, concisely and to the point.",
+  "user": "Answer the following question briefly: Which literary work by Sunthorn Phu features a character named Sudsakorn?"
+ },
+ {
+  "id": "sum1",
+  "task": "summarize",
+  "system": "You are a helpful AI assistant. Always answer in English, accurately, concisely and to the point.",
+  "user": "Summarize the following text in 2 sentences:\n\nThailand is facing energy challenges as electricity demand keeps rising due to data centers and the digital industry. The government is therefore promoting renewable energy such as solar and wind power, together with improving energy efficiency in the business sector. In addition, energy storage systems are being studied to cope with the variability of renewable energy."
+ },
+ {
+  "id": "sum2",
+  "task": "summarize",
+  "system": "You are a helpful AI assistant. Always answer in English, accurately, concisely and to the point.",
+  "user": "Summarize the following text in 2 sentences:\n\nGenerative artificial intelligence is being used in many industries, from customer service and media production to software development. However, large language models require a great deal of computing resources, which makes them costly and energy-intensive. Researchers have therefore turned their attention to small language models that can run on ordinary computers while still producing good results on specific tasks."
+ },
+ {
+  "id": "sum3",
+  "task": "summarize",
+  "system": "You are a helpful AI assistant. Always answer in English, accurately, concisely and to the point.",
+  "user": "Summarize the following text in 2 sentences:\n\nMany farmers in Northeastern Thailand have started to adopt smart farming technologies such as soil moisture sensors and automatic irrigation systems, which reduce water and labor use. Rice yield per rai has increased noticeably in areas using these technologies, but the high initial cost remains a major obstacle for smallholder farmers."
+ },
+ {
+  "id": "sum4",
+  "task": "summarize",
+  "system": "You are a helpful AI assistant. Always answer in English, accurately, concisely and to the point.",
+  "user": "Summarize the following text in 2 sentences:\n\nThai tourism has continued to recover after the COVID-19 pandemic, with the number of foreign tourists increasing every quarter. Popular provinces include Bangkok, Phuket and Chiang Mai. However, some business operators are concerned about labor shortages and the environmental impact of overtourism."
+ },
+ {
+  "id": "sum5",
+  "task": "summarize",
+  "system": "You are a helpful AI assistant. Always answer in English, accurately, concisely and to the point.",
+  "user": "Summarize the following text in 2 sentences:\n\nMany universities in Thailand have begun adjusting their curricula to match labor market needs by adding courses in data science and artificial intelligence and by letting students intern with industry from their first year. Experts believe this change will help close the skills gap, but faculty development must go hand in hand with it."
+ },
+ {
+  "id": "cls1",
+  "task": "classify",
+  "system": "You are a helpful AI assistant. Always answer in English, accurately, concisely and to the point.",
+  "user": "Classify the sentiment of the following review. Answer with exactly one word from: positive, negative, neutral\n\nReview: The food was delicious and the staff were excellent. I will definitely come back."
+ },
+ {
+  "id": "cls2",
+  "task": "classify",
+  "system": "You are a helpful AI assistant. Always answer in English, accurately, concisely and to the point.",
+  "user": "Classify the sentiment of the following review. Answer with exactly one word from: positive, negative, neutral\n\nReview: We waited almost an hour, the food was cold, and it was overpriced."
+ },
+ {
+  "id": "cls3",
+  "task": "classify",
+  "system": "You are a helpful AI assistant. Always answer in English, accurately, concisely and to the point.",
+  "user": "Classify the sentiment of the following review. Answer with exactly one word from: positive, negative, neutral\n\nReview: The shop opens at 10 a.m. and there is parking behind the shop."
+ },
+ {
+  "id": "cls4",
+  "task": "classify",
+  "system": "You are a helpful AI assistant. Always answer in English, accurately, concisely and to the point.",
+  "user": "Classify the sentiment of the following review. Answer with exactly one word from: positive, negative, neutral\n\nReview: The product matched the description, shipped fast, was well packed and is worth the price."
+ },
+ {
+  "id": "cls5",
+  "task": "classify",
+  "system": "You are a helpful AI assistant. Always answer in English, accurately, concisely and to the point.",
+  "user": "Classify the sentiment of the following review. Answer with exactly one word from: positive, negative, neutral\n\nReview: It broke after only two days, and nobody answered when I contacted the shop."
+ },
+ {
+  "id": "hum1",
+  "task": "humor",
+  "system": "You are a helpful AI assistant. Always answer in English, accurately, concisely and to the point.",
+  "user": "You are the best comedian in Thailand. Please come up with one joke about food."
+ },
+ {
+  "id": "hum2",
+  "task": "humor",
+  "system": "You are a helpful AI assistant. Always answer in English, accurately, concisely and to the point.",
+  "user": "You are the best comedian in Thailand. Please come up with one joke about love."
+ },
+ {
+  "id": "hum3",
+  "task": "humor",
+  "system": "You are a helpful AI assistant. Always answer in English, accurately, concisely and to the point.",
+  "user": "You are the best comedian in Thailand. Please come up with one joke about studying."
+ },
+ {
+  "id": "hum4",
+  "task": "humor",
+  "system": "You are a helpful AI assistant. Always answer in English, accurately, concisely and to the point.",
+  "user": "You are the best comedian in Thailand. Please come up with one joke about work."
+ },
+ {
+  "id": "hum5",
+  "task": "humor",
+  "system": "You are a helpful AI assistant. Always answer in English, accurately, concisely and to the point.",
+  "user": "You are the best comedian in Thailand. Please come up with one joke about animals."
+ }
+]

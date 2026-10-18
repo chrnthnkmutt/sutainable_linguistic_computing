@@ -1,0 +1,36 @@
+# Qwen3.5-4B GGUF quantization ladder on Ollama (llama.cpp), thinking on/off.
+backend: ollama
+base_url: http://127.0.0.1:11434   # not "localhost": on Windows that adds ~2 s per request (IPv6 fallback)
+model_template: "hf.co/unsloth/Qwen3.5-4B-GGUF:{quant}"
+quants: [BF16, Q8_0, Q6_K, Q5_K_M, Q4_K_M, Q3_K_M, UD-Q2_K_XL]
+
+prompts: configs/prompts.yaml
+tasks: [qa, summarize, classify, humor]
+repeats: 5            # seed = seed_base + repeat; prompt order shuffled per repeat
+seed_base: 1000
+
+# Each mode is one block per quant. langs: which prompt languages to run in that mode.
+modes:
+  no_think:
+    think: false
+    langs: [th, en]
+    num_predict: 1024
+    # Qwen3.5 recommended non-thinking sampling
+    options: {temperature: 0.7, top_p: 0.8, top_k: 20, presence_penalty: 1.5}
+  think:
+    think: true
+    langs: [th]
+    num_predict: 8192   # thinking cap; hitting it is recorded as done_reason=length
+    # Qwen3.5 recommended thinking sampling (greedy decoding causes endless loops)
+    options: {temperature: 0.6, top_p: 0.95, top_k: 20, presence_penalty: 1.5}
+
+num_ctx: 12288
+keep_alive: 30m
+
+measurement:
+  trace_period_s: 0.05      # instantaneous-power sampling (zero observer effect)
+  tail_s: 0.25              # wait after each request so the ~100 ms NVML counter catches up
+  idle_measure_s: 30        # idle baseline per block, subtracted for net energy
+  cooldown_max_s: 120       # before idle baseline: wait until GPU power settles
+  cooldown_settle_w: 3.0    # "settled" = 5 s window with max-min power below this
+  save_traces: true

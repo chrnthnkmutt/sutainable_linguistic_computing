@@ -1,0 +1,98 @@
+# Thai-language workload (with semantically equivalent English versions for the
+# tokenization comparison, RQ4). Every item has a stable id so results can be joined.
+#
+# gold / gold_any: reference answers used by analyze.py for automatic scoring.
+#   classify -> exact label;  qa -> answer counts as correct if it contains any gold_any string.
+
+system:
+  th: "คุณเป็นผู้ช่วย AI ที่ตอบเป็นภาษาไทยเสมอ ตอบให้ถูกต้อง กระชับ และตรงคำถาม"
+  en: "You are a helpful AI assistant. Always answer in English, accurately, concisely and to the point."
+
+tasks:
+  qa:
+    template:
+      th: "ตอบคำถามต่อไปนี้สั้น ๆ: {q}"
+      en: "Answer the following question briefly: {q}"
+    items:
+      - id: qa1
+        q: {th: "แม่น้ำสายหลักที่ไหลผ่านกรุงเทพมหานครคือแม่น้ำอะไร", en: "What is the main river that flows through Bangkok?"}
+        gold_any: ["เจ้าพระยา", "Chao Phraya"]
+      - id: qa2
+        q: {th: "ประเทศไทยมีทั้งหมดกี่จังหวัด (นับรวมกรุงเทพมหานคร)", en: "How many provinces does Thailand have in total (including Bangkok)?"}
+        gold_any: ["77", "เจ็ดสิบเจ็ด", "seventy-seven"]
+      - id: qa3
+        q: {th: "ยอดเขาที่สูงที่สุดในประเทศไทยคือยอดเขาอะไร", en: "What is the highest mountain peak in Thailand?"}
+        gold_any: ["อินทนนท์", "Inthanon"]
+      - id: qa4
+        q: {th: "พยัญชนะไทยมีทั้งหมดกี่ตัว", en: "How many consonant letters are there in the Thai alphabet?"}
+        gold_any: ["44", "สี่สิบสี่", "forty-four"]
+      - id: qa5
+        q: {th: "สุนทรภู่เป็นผู้ประพันธ์วรรณคดีเรื่องใดที่มีตัวละครชื่อสุดสาคร", en: "Which literary work by Sunthorn Phu features a character named Sudsakorn?"}
+        gold_any: ["พระอภัยมณี", "Phra Aphai Mani", "Phra Abhai Mani"]
+
+  summarize:
+    template:
+      th: "สรุปข้อความต่อไปนี้ให้เหลือ 2 ประโยค:\n\n{text}"
+      en: "Summarize the following text in 2 sentences:\n\n{text}"
+    items:
+      - id: sum1
+        text:
+          th: "ประเทศไทยกำลังเผชิญความท้าทายด้านพลังงาน เนื่องจากความต้องการไฟฟ้าเพิ่มขึ้นอย่างต่อเนื่องจากศูนย์ข้อมูลและอุตสาหกรรมดิจิทัล รัฐบาลจึงส่งเสริมพลังงานหมุนเวียน เช่น พลังงานแสงอาทิตย์และพลังงานลม ควบคู่กับการปรับปรุงประสิทธิภาพการใช้พลังงานในภาคธุรกิจ นอกจากนี้ยังมีการศึกษาการนำระบบกักเก็บพลังงานมาใช้เพื่อรองรับความไม่แน่นอนของพลังงานหมุนเวียน"
+          en: "Thailand is facing energy challenges as electricity demand keeps rising due to data centers and the digital industry. The government is therefore promoting renewable energy such as solar and wind power, together with improving energy efficiency in the business sector. In addition, energy storage systems are being studied to cope with the variability of renewable energy."
+      - id: sum2
+        text:
+          th: "ปัญญาประดิษฐ์เชิงสร้างสรรค์ถูกนำมาใช้ในหลายอุตสาหกรรม ตั้งแต่การบริการลูกค้า การผลิตสื่อ ไปจนถึงการพัฒนาซอฟต์แวร์ อย่างไรก็ตาม โมเดลภาษาขนาดใหญ่ต้องใช้ทรัพยากรการประมวลผลจำนวนมาก ทำให้มีต้นทุนสูงและใช้พลังงานมาก นักวิจัยจึงหันมาสนใจโมเดลภาษาขนาดเล็กที่สามารถทำงานบนเครื่องคอมพิวเตอร์ทั่วไปได้ โดยยังคงให้ผลลัพธ์ที่ดีในงานเฉพาะด้าน"
+          en: "Generative artificial intelligence is being used in many industries, from customer service and media production to software development. However, large language models require a great deal of computing resources, which makes them costly and energy-intensive. Researchers have therefore turned their attention to small language models that can run on ordinary computers while still producing good results on specific tasks."
+      - id: sum3
+        text:
+          th: "เกษตรกรในภาคอีสานหลายรายเริ่มนำเทคโนโลยีเกษตรอัจฉริยะมาใช้ เช่น เซนเซอร์วัดความชื้นในดินและระบบให้น้ำอัตโนมัติ ซึ่งช่วยลดการใช้น้ำและแรงงาน ผลผลิตข้าวต่อไร่เพิ่มขึ้นอย่างเห็นได้ชัดในพื้นที่ที่ใช้เทคโนโลยีดังกล่าว แต่ต้นทุนเริ่มต้นที่สูงยังเป็นอุปสรรคสำคัญสำหรับเกษตรกรรายย่อย"
+          en: "Many farmers in Northeastern Thailand have started to adopt smart farming technologies such as soil moisture sensors and automatic irrigation systems, which reduce water and labor use. Rice yield per rai has increased noticeably in areas using these technologies, but the high initial cost remains a major obstacle for smallholder farmers."
+      - id: sum4
+        text:
+          th: "การท่องเที่ยวไทยฟื้นตัวอย่างต่อเนื่องหลังการแพร่ระบาดของโควิด-19 โดยจำนวนนักท่องเที่ยวต่างชาติเพิ่มขึ้นทุกไตรมาส จังหวัดยอดนิยม ได้แก่ กรุงเทพมหานคร ภูเก็ต และเชียงใหม่ อย่างไรก็ตาม ผู้ประกอบการบางส่วนกังวลเรื่องปัญหาขาดแคลนแรงงานและผลกระทบต่อสิ่งแวดล้อมจากการท่องเที่ยวที่หนาแน่นเกินไป"
+          en: "Thai tourism has continued to recover after the COVID-19 pandemic, with the number of foreign tourists increasing every quarter. Popular provinces include Bangkok, Phuket and Chiang Mai. However, some business operators are concerned about labor shortages and the environmental impact of overtourism."
+      - id: sum5
+        text:
+          th: "มหาวิทยาลัยหลายแห่งในประเทศไทยเริ่มปรับหลักสูตรให้สอดคล้องกับความต้องการของตลาดแรงงาน โดยเพิ่มรายวิชาด้านวิทยาการข้อมูลและปัญญาประดิษฐ์ รวมถึงเปิดโอกาสให้นักศึกษาฝึกงานกับภาคอุตสาหกรรมตั้งแต่ชั้นปีแรก ผู้เชี่ยวชาญเห็นว่าการเปลี่ยนแปลงนี้จะช่วยลดช่องว่างทักษะ แต่ต้องมีการพัฒนาอาจารย์ควบคู่กันไปด้วย"
+          en: "Many universities in Thailand have begun adjusting their curricula to match labor market needs by adding courses in data science and artificial intelligence and by letting students intern with industry from their first year. Experts believe this change will help close the skills gap, but faculty development must go hand in hand with it."
+
+  classify:
+    template:
+      th: "จำแนกความรู้สึกของรีวิวต่อไปนี้ ตอบเพียงคำเดียวจาก: บวก, ลบ, กลาง\n\nรีวิว: {text}"
+      en: "Classify the sentiment of the following review. Answer with exactly one word from: positive, negative, neutral\n\nReview: {text}"
+    labels:
+      th: {บวก: positive, ลบ: negative, กลาง: neutral}
+      en: {positive: positive, negative: negative, neutral: neutral}
+    items:
+      - id: cls1
+        text: {th: "อาหารอร่อยมาก พนักงานบริการดีเยี่ยม จะกลับมาอีกแน่นอน", en: "The food was delicious and the staff were excellent. I will definitely come back."}
+        gold: positive
+      - id: cls2
+        text: {th: "รอคิวนานเกือบชั่วโมง อาหารเย็นชืด แถมราคาแพงเกินไป", en: "We waited almost an hour, the food was cold, and it was overpriced."}
+        gold: negative
+      - id: cls3
+        text: {th: "ร้านเปิดเวลา 10 โมงเช้า มีที่จอดรถด้านหลังร้าน", en: "The shop opens at 10 a.m. and there is parking behind the shop."}
+        gold: neutral
+      - id: cls4
+        text: {th: "สินค้าตรงปก ส่งไว แพ็กมาอย่างดี คุ้มค่ากับราคา", en: "The product matched the description, shipped fast, was well packed and is worth the price."}
+        gold: positive
+      - id: cls5
+        text: {th: "ใช้ได้แค่สองวันก็พัง ติดต่อร้านไปก็ไม่มีใครตอบ", en: "It broke after only two days, and nobody answered when I contacted the shop."}
+        gold: negative
+
+  humor:
+    # Zero-shot prompt from "Thai Humor Generation by Small Language Models" (ECTI-CON 2025).
+    template:
+      th: "คุณเป็นนักแสดงตลกที่เก่งที่สุดในประเทศไทย ช่วยแต่งมุกตลกเกี่ยวกับ{topic} 1 มุก"
+      en: "You are the best comedian in Thailand. Please come up with one joke about {topic}."
+    items:
+      - id: hum1
+        topic: {th: "อาหาร", en: "food"}
+      - id: hum2
+        topic: {th: "ความรัก", en: "love"}
+      - id: hum3
+        topic: {th: "การเรียน", en: "studying"}
+      - id: hum4
+        topic: {th: "การทำงาน", en: "work"}
+      - id: hum5
+        topic: {th: "สัตว์", en: "animals"}
