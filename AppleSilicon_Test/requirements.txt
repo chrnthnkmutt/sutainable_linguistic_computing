@@ -1,0 +1,10 @@
+psutil>=5.9
+openpyxl>=3.1
+py-cpuinfo>=9.0
+# NVIDIA GPU monitoring (NVML)
+nvidia-ml-py>=12.0; sys_platform != "darwin"
+# Apple Silicon CPU/GPU energy (IOReport) - Apple Silicon Macs only
+zeus-apple-silicon>=1.0; sys_platform == "darwin" and platform_machine == "arm64"
+# foundry_local_sdk: keep your existing install; PyJoules is no longer used.
+openai>=1.0   # only for main_ollama.py (OpenAI-compatible client)
+foundry_local_sdk
