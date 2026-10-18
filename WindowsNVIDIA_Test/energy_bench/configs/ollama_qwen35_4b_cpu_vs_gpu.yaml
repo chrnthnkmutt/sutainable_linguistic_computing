@@ -1,0 +1,39 @@
+# Same model on GPU vs CPU (team decision 2026-10-09): Ollama library qwen3.5:4b (Q4_K_M) and a
+# CPU-only copy built from the team Modelfile:
+#     FROM qwen3.5:4b
+#     PARAMETER temperature 1
+#     PARAMETER num_gpu 0
+#     ollama create qwen3.5:4b-cpu -f Modelfile
+# Note: the request options below override the Modelfile's temperature (Ollama applies request
+# options over Modelfile PARAMETERs), so both runs use the same sampling.
+#
+# CPU energy: Zeus RAPL (Linux), Apple Silicon (zeus-apple-silicon), or on Windows the Energy Meter
+# performance counters (RAPL via EMI, no admin; win_emi.py) since Zeus has no Windows CPU source.
+backend: ollama
+base_url: http://127.0.0.1:11434
+model_template: "{quant}"
+quants: ["qwen3.5:4b", "qwen3.5:4b-cpu"]
+
+prompts: configs/prompts.yaml
+tasks: [qa, summarize, classify, humor]
+repeats: 5
+seed_base: 1000
+
+modes:
+  no_think:
+    think: false
+    langs: [th, en]
+    num_predict: 1024
+    options: {temperature: 0.7, top_p: 0.8, top_k: 20, presence_penalty: 1.5}
+
+num_ctx: 12288
+keep_alive: 30m
+
+measurement:
+  meter: zeus
+  trace_period_s: 0.05
+  tail_s: 0.25
+  idle_measure_s: 30
+  cooldown_max_s: 120
+  cooldown_settle_w: 3.0
+  save_traces: true

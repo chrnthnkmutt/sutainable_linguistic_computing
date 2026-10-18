@@ -1,0 +1,39 @@
+# Qwen3.5-4B MLX quantization ladder on Apple Silicon (mlx_lm.server), thinking on/off.
+# Same workload and protocol as ollama_qwen35_4b.yaml so results are directly comparable.
+#
+# Before running (see README):
+#   pip install mlx-lm
+#   huggingface-cli download mlx-community/Qwen3.5-4B-bf16   (and each quant below)
+#   mlx_lm.server --host 127.0.0.1 --port 8080
+#   energy from the SoC counters via zeus-apple-silicon (no sudo needed)
+backend: openai
+base_url: http://127.0.0.1:8080
+model_template: "mlx-community/Qwen3.5-4B-{quant}"
+# MLX has no 5-bit / K-quant equivalents; mixed_2_6 is the closest to the GGUF 2-bit level.
+quants: [bf16, 8bit, 6bit, 4bit, 3bit, mixed_2_6]
+thinking_kwarg: enable_thinking   # passed as chat_template_kwargs to toggle Qwen thinking
+
+prompts: configs/prompts.yaml
+tasks: [qa, summarize, classify, humor]
+repeats: 5
+seed_base: 1000
+
+modes:
+  no_think:
+    think: false
+    langs: [th, en]
+    num_predict: 1024
+    options: {temperature: 0.7, top_p: 0.8, top_k: 20, presence_penalty: 1.5}
+  think:
+    think: true
+    langs: [th]
+    num_predict: 8192
+    options: {temperature: 0.6, top_p: 0.95, top_k: 20, presence_penalty: 1.5}
+
+measurement:
+  trace_period_s: 0.1
+  tail_s: 0.25
+  idle_measure_s: 30
+  cooldown_max_s: 120
+  cooldown_settle_w: 1.5    # Apple Silicon idle power is a few watts
+  save_traces: true

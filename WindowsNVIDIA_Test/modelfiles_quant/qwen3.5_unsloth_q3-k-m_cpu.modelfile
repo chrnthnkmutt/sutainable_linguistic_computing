@@ -1,0 +1,4 @@
+FROM hf.co/unsloth/Qwen3.5-4B-GGUF:Q3_K_M
+
+# CPU-only copy of the unsloth GGUF (same weights, no layers offloaded to the GPU)
+PARAMETER num_gpu 0

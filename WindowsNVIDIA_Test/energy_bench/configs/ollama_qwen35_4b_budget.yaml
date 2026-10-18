@@ -1,0 +1,35 @@
+# Thinking-effort study: Qwen3.5-4B with a thinking-token budget (budget forcing).
+# Each budget becomes its own mode (budget_<N>). Thinking stops at N tokens (or earlier if the
+# model finishes), the thinking block is closed, and the answer is generated (<= num_predict).
+# budget_0 = empty thinking block (the template's non-thinking prompt).
+#
+# Q4_K_M = best energy/accuracy point of the quant ladder; Q8_0 = near-lossless reference
+# (BF16 left out: it pushed system RAM to >90% on this 32 GB machine).
+backend: ollama
+base_url: http://127.0.0.1:11434
+model_template: "hf.co/unsloth/Qwen3.5-4B-GGUF:{quant}"
+quants: [Q4_K_M, Q8_0]
+
+prompts: configs/prompts.yaml
+tasks: [qa, summarize, classify, humor]
+repeats: 5
+seed_base: 1000
+
+modes:
+  budget:
+    think_budgets: [0, 256, 512, 1024, 2048, 4096, 8192]
+    langs: [th]
+    num_predict: 1024   # answer tokens after the thinking block
+    # same sampling for every budget so only the budget varies (Qwen thinking settings)
+    options: {temperature: 0.6, top_p: 0.95, top_k: 20, presence_penalty: 1.5}
+
+num_ctx: 12288
+keep_alive: 30m
+
+measurement:
+  trace_period_s: 0.05
+  tail_s: 0.25
+  idle_measure_s: 30
+  cooldown_max_s: 120
+  cooldown_settle_w: 3.0
+  save_traces: true

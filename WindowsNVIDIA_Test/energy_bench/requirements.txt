@@ -1,0 +1,7 @@
+zeus>=0.16
+zeus-apple-silicon>=1.0; sys_platform == "darwin" and platform_machine == "arm64"
+nvidia-ml-py>=12.0; platform_system != "Darwin"
+pyyaml>=6.0
+psutil>=5.9
+pandas>=2.0
+matplotlib>=3.7
